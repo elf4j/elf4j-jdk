@@ -28,8 +28,11 @@ package elf4j.jul;
 import elf4j.Logger;
 import elf4j.spi.LogServiceProvider;
 
-/** */
+/** Provides an elf4j Logger instance implemented via Java 4 util Logger */
 public class JulLoggerFactory implements LogServiceProvider {
+    /** A default constructor is required by the JDK Service Provider framework */
+    public JulLoggerFactory() {}
+
     @Override
     public Logger logger() {
         return JulLogger.instance();

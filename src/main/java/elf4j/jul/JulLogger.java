@@ -71,13 +71,13 @@ class JulLogger implements Logger {
         return getLogger(name, DEFAULT_LEVEL);
     }
 
-    private static EnumMap<Level, Map<String, JulLogger>> initLoggerCache() {
+    private static @NonNull EnumMap<Level, Map<String, JulLogger>> initLoggerCache() {
         EnumMap<Level, Map<String, JulLogger>> loggerCache = new EnumMap<>(Level.class);
         EnumSet.allOf(Level.class).forEach(level -> loggerCache.put(level, new ConcurrentHashMap<>()));
         return loggerCache;
     }
 
-    private static String replaceWithJulPlaceholders(String message) {
+    private static @NonNull String replaceWithJulPlaceholders(@NonNull String message) {
         StringBuilder stringBuilder = new StringBuilder();
         char[] chars = message.toCharArray();
         int placeholderIndex = 0;
@@ -92,7 +92,7 @@ class JulLogger implements Logger {
         return stringBuilder.toString();
     }
 
-    private static EnumMap<Level, java.util.logging.Level> setLevelMap() {
+    private static @NonNull EnumMap<Level, java.util.logging.Level> setLevelMap() {
         EnumMap<Level, java.util.logging.Level> levelMap = new EnumMap<>(Level.class);
         levelMap.put(TRACE, java.util.logging.Level.FINEST);
         levelMap.put(DEBUG, java.util.logging.Level.FINE);

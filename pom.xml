@@ -31,7 +31,7 @@
 
     <groupId>io.github.elf4j</groupId>
     <artifactId>elf4j-jul</artifactId>
-    <version>6.0.0</version>
+    <version>6.1.0</version>
 
     <packaging>jar</packaging>
     <name>elf4j-jul</name>
@@ -68,7 +68,7 @@
         <dependency>
             <groupId>io.github.elf4j</groupId>
             <artifactId>elf4j</artifactId>
-            <version>4.0.0</version>
+            <version>4.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -146,7 +146,7 @@
                 <configuration>
                     <java>
                         <palantirJavaFormat>
-                            <version>2.40.0</version>                     <!-- optional -->
+                            <version>2.43.0</version>
                             <style>PALANTIR</style>                       <!-- or AOSP/GOOGLE (optional) -->
                             <formatJavadoc>true
                             </formatJavadoc>          <!-- defaults to false (optional, requires at least Palantir 2.39.0) -->
