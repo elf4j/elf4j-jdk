@@ -25,15 +25,11 @@
 
 package elf4j.jul;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import elf4j.Level;
 import elf4j.Logger;
 import java.util.Arrays;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -82,9 +78,8 @@ class JulLoggerTest {
                         "enabled by the configuration of the logging provider");
             }
             debug.log(
-                    (Supplier)
-                            () ->
-                                    "alternative to the level guard, using a supplier function should achieve the same goal, pending quality of the logging provider");
+                    () ->
+                            "alternative to the level guard, using a supplier function should achieve the same goal, pending quality of the logging provider");
         }
 
         @Test
@@ -113,10 +108,10 @@ class JulLoggerTest {
             error.log(
                     ex,
                     "now at Level.ERROR, together with the exception stack trace, logging some items expensive to compute: item1 {}, item2 {}, item3 {}, item4 {}, ...",
-                    "i11111",
-                    (Supplier) () -> "i22222",
-                    "i33333",
-                    (Supplier) () -> Arrays.stream(new Object[] {"i44444"}).collect(Collectors.toList()));
+                    () -> "i11111",
+                    () -> "i22222",
+                    () -> "i33333",
+                    () -> Arrays.stream(new Object[] {"i44444"}).collect(Collectors.toList()));
         }
     }
 }
